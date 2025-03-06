@@ -1,19 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route } from "react-router-dom"
+import { Home } from "./components/pages/Home/Home"; 
+import {Class1} from "./components/pages/Class1/Class1";
+import {NotFound} from "./components/pages/NotFound/NotFound"
+import { Header } from "./components/layouts/Header/Header"
 
-function App() {
-  const [count, setCount] = useState(0)
 
+
+export const App = ()  =>{
   return (
-    <div style={{ textAlign: "center", padding: "20px" }}>
-      <h1>Hola, bienvenid@ a mi primer proyecto en React 💪🏻</h1>
-      <p>Este es un contador</p>
-      <h2>{count}</h2>
-      <button onClick={() => setCount(count + 1)}>Aumentar</button>
-    </div>
+   <>
+   <Header />
+   <Routes>
+    <Route path="/" element ={<Home />}/>
+    <Route path="/class1" element ={<Class1 />}/>
+    <Route path="*" element ={<NotFound />}/>
+   </Routes>
+   
+   </>
+
   )
 }
-
-export default App
